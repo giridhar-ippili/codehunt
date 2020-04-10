@@ -1,4 +1,5 @@
-* {
+* 
+{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -10,7 +11,21 @@
     background: #dbe9fa;
     padding: 0 16px;
   }
-  
+  button{
+    width:80px;
+    height:40px;
+    background-color: #91c7f3;
+    position: relative;
+    top: -50px;  
+    float: right;
+    color: #fff;
+    
+  }
+  form{
+    font-size: small;
+    text-align: center;
+    font-family: "McLaren", cursive;
+  }
   header {
     background-color: #91c7f3;
     margin: auto -16px;
@@ -59,4 +74,3 @@
     white-space: pre-wrap;
     word-wrap: break-word;
   }
-  
