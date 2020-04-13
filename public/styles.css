@@ -11,20 +11,11 @@
     background: #dbe9fa;
     padding: 0 16px;
   }
-  button{
-    width:80px;
-    height:40px;
-    background-color: #91c7f3;
-    position: relative;
-    top: -50px;  
-    float: right;
-    color: #fff;
-    
-  }
+
   form{
-    font-size: small;
-    text-align: center;
+    font-size: medium;
     font-family: "McLaren", cursive;
+    display: inline-grid;
   }
   header {
     background-color: #91c7f3;
@@ -38,7 +29,11 @@
     font-family: "McLaren", cursive;
     font-weight: 200;
   }
-  
+  .text-Input {
+    width: 85%;
+    position: absolute;
+    right: 5%;
+  }
   footer {
     position: absolute;
     text-align: center;
@@ -53,6 +48,20 @@
   img {
     width: 70%;
     height: auto;
+  }
+  .add-button{
+    width:80px;
+    height:40px;
+    background-color: #91c7f3;
+    position: relative;
+    top: -50px;  
+    float: right;
+    color: #fff;
+    
+  }
+  .submit-button{
+    background-color: #91c7f3;
+    color: #fff;  
   }
   .note {
     background: #fff;

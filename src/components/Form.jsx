@@ -5,13 +5,13 @@ function Form() {
   return (
     <form>
           <label>
-            Name: <input type="text" name="name" />
+            Name: <input type="text" className="text-Input" name="name" />
           </label>
           <label>
-            Email: <input type="email" name="Email" />
+            Email: <input type="email" className="text-Input" name="Email" />
           </label>
           <label>
-            Phone: <input type="tel" name="Phone" pattern="[0-9]{10}"/>
+            Phone: <input type="tel" name="Phone" className="text-Input" pattern="[0-9]{10}"/>
           </label>
           <label>
             Gender : 
@@ -22,7 +22,11 @@ function Form() {
             <input type="radio" id="female" name="gender" value="female"/>
             <label>Female</label>
           </label>
-          <input type="submit" value="Submit" />
+          <div>
+            <button type="submit" className="submit-button" value="Submit">Submit</button>
+            <button type="cancel" value="cancel">Cancel</button>
+          </div>
+
         </form>
   );
 }
