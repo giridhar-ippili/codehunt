@@ -13,7 +13,7 @@
   }
 
   form{
-    font-size: medium;
+    font-size: small;
     font-family: "McLaren", cursive;
     display: inline-grid;
   }
@@ -62,6 +62,7 @@
   .submit-button{
     background-color: #91c7f3;
     color: #fff;  
+    font-size: small;
   }
   .note {
     background: #fff;

@@ -1,17 +1,31 @@
 import React from 'react';
 
+const contact = [
+  {
+    key:0,
+    name:"",
+    img:"",
+    phone:"",
+    email:""
+  }
+]
+
+function submit(){
+  console.log(contact)
+}
 
 function Form() {
   return (
     <form>
+          <h5>Add Contact</h5>
           <label>
-            Name: <input type="text" className="text-Input" name="name" />
+            Name: <input type="text" className="text-Input" name="name" value={contact.name}/>
           </label>
           <label>
-            Email: <input type="email" className="text-Input" name="Email" />
+            Email: <input type="email" className="text-Input" name="Email" value={contact.email}/>
           </label>
           <label>
-            Phone: <input type="tel" name="Phone" className="text-Input" pattern="[0-9]{10}"/>
+            Phone: <input type="tel" name="Phone" className="text-Input" value={contact.phone} pattern="[0-9]{10}"/>
           </label>
           <label>
             Gender : 
@@ -23,10 +37,10 @@ function Form() {
             <label>Female</label>
           </label>
           <div>
-            <button type="submit" className="submit-button" value="Submit">Submit</button>
+            <button type="button" className="submit-button" onClick={submit}>Add Contact</button>
+            <span> </span>
             <button type="cancel" value="cancel">Cancel</button>
           </div>
-
         </form>
   );
 }
