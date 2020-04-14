@@ -53,9 +53,6 @@
     width:80px;
     height:40px;
     background-color: #91c7f3;
-    position: relative;
-    top: -50px;  
-    float: right;
     color: #fff;
     
   }
@@ -63,6 +60,10 @@
     background-color: #91c7f3;
     color: #fff;  
     font-size: small;
+  }
+  .header-content{
+    display: flex;
+    justify-content: space-between ;
   }
   .note {
     background: #fff;
