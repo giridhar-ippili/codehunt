@@ -10,33 +10,29 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 
 function Form() {
-  const contact =
-    {
-      key:0,
-      name:"",
-      img:"",
-      phone:"",
-      email:"",
-      gender:""
-    }
-  const [newContact, setContact] = useState(contact)
+  const [newContact, setContact] = useState({
+    key:0,
+    name:"",
+    img:"",
+    phone:"",
+    email:"",
+    gender:""
+  })
 
   function handleChange(event){
 
     const {name, value} = event.target
-    console.log(event.target.name)
-
+    if(name === "name"){
+      newContact.name = value
+    }else if(name === "phone"){
+      newContact.phone = value
+    }else if(name === "email"){
+      newContact.email = value
+    }else if(name === "gender"){
+      newContact.gender = value
+    }
     setContact({
-      ...newContact,
-      // if(name === "name"){
-      //   newContact.name = value
-      // }else if(name === "phone"){
-      //   newContact.phone = value
-      // }else if(name === "email"){
-      //   newContact.email = value
-      // }else if(name === "gender"){
-      //   newContact.gender = value
-      // }
+      ...newContact,   
     });
 
   }
@@ -46,7 +42,7 @@ function Form() {
   return (
     <Card>
       <CardContent>
-      <CardHeader>Add Contact</CardHeader>
+      <CardHeader><h4>Add Contact</h4></CardHeader>
         <FormControl>         
             <label>
             Name:<TextField label="Name" 
@@ -77,8 +73,9 @@ function Form() {
           <Select name="gender" 
                   value={newContact.gender} 
                   onChange={handleChange}
+                  displayEmpty
                   autoWidth>
-            <MenuItem value="" disabled>Select an option</MenuItem>      
+            <MenuItem value="" selected disabled>Select an option</MenuItem>      
             <MenuItem value="male">Male</MenuItem>
             <MenuItem value="female">Female</MenuItem>
             <MenuItem value="idiot">I don't know</MenuItem>

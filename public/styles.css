@@ -12,10 +12,10 @@
     padding: 0 16px;
   }
 
-  form{
+  .add-contact-form{
     font-size: small;
     font-family: "McLaren", cursive;
-    display: inline-grid;
+    display: inline-grid !important;
   }
   header {
     background-color: #91c7f3;
@@ -29,8 +29,11 @@
     font-family: "McLaren", cursive;
     font-weight: 200;
   }
+  label{
+    display: inline;
+  }
   .text-Input {
-    width: 85% !important;
+    width: 100% !important;
   }
   footer {
     position: absolute;
