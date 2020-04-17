@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+// import Container from '@material-ui/core/Container';
 import Popup from 'reactjs-popup';
 import Form from './Form'
+import Fab from '@material-ui/core/Fab'
+import AddIcon from '@material-ui/icons/Add';
 
 function Header() {
   setInterval(getTime,1000)
@@ -17,14 +20,13 @@ function Header() {
       <h2>{time}</h2>    
       <Popup 
         modal 
-        trigger={<button className="add-button">Add +</button>} 
+        trigger={<Fab className = "add-button"><AddIcon/></Fab>} 
         position="bottom right"
       >
-      <div>
         <Form />
-      </div>
       </Popup>
     </div>
+    
     </header>    
   );
 }

@@ -1,4 +1,13 @@
 import React, { useState } from 'react';
+import TextField from '@material-ui/core/TextField'
+import Button from '@material-ui/core/Button'
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardHeader from '@material-ui/core/CardContent';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
 
 function Form() {
   const contact =
@@ -11,80 +20,79 @@ function Form() {
       gender:""
     }
   const [newContact, setContact] = useState(contact)
-  const updatedContact =
-    {
-      key:0,
-      name:"",
-      img:"",
-      phone:"",
-      email:"",
-      gender:""
-    }
+
   function handleChange(event){
 
-    const value = event.target.value
+    const {name, value} = event.target
     console.log(event.target.name)
-    if(event.target.name === "name"){
-      updatedContact.name = value
-      console.log("I am here")
-    }else if(event.target.name === "phone"){
-      console.log("I am here as well")
-      updatedContact.phone = value
-    }else if(event.target.name === "email"){
-      updatedContact.email = value
-    }else if(event.target.name === "gender"){
-      updatedContact.gender = value
-    }
+
     setContact({
-      [event.target.name]: value
+      ...newContact,
+      // if(name === "name"){
+      //   newContact.name = value
+      // }else if(name === "phone"){
+      //   newContact.phone = value
+      // }else if(name === "email"){
+      //   newContact.email = value
+      // }else if(name === "gender"){
+      //   newContact.gender = value
+      // }
     });
-    // setContact(updatedContact);
-    console.log(updatedContact)
+
   }
   function handleSubmit() {
     console.log(newContact)
   }
   return (
-    <form>
-          <h5>Add Contact</h5>
-          <label>
-            Name: <input type="text" 
-                         className="text-Input" 
-                         name="name" value={newContact.name} 
-                         onChange={handleChange}/>
+    <Card>
+      <CardContent>
+      <CardHeader>Add Contact</CardHeader>
+        <FormControl>         
+            <label>
+            Name:<TextField label="Name" 
+                            variant="outlined" 
+                            className="text-Input" 
+                            name="name" 
+                            value={newContact.name} 
+                            onChange={handleChange}/>
           </label>
           <label>
-            Email: <input type="email" 
-                          className="text-Input" 
-                          name="email" 
-                          value={newContact.email}
-                          onChange={handleChange}/>
+            Email:<TextField label="Email" 
+                            variant="outlined" 
+                            className="text-Input" 
+                            name="email" 
+                            value={newContact.email} 
+                            onChange={handleChange}/>
           </label>
           <label>
-            Phone: <input type="tel" 
-                          name="phone" 
-                          className="text-Input" 
-                          value={newContact.phone} 
-                          pattern="[0-9]{10}"
-                          onChange={handleChange}
-                          />
+            Phone: <TextField label="Mobile number" 
+                            variant="outlined" 
+                            className="text-Input" 
+                            name="phone" 
+                            value={newContact.phone} 
+                            onChange={handleChange}/>
           </label>
           <label>
           Gender:
-          <span>   </span>
-          <select name="gender" value={newContact.gender} onChange={handleChange}>
-            <option hidden disabled selected>select an option</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="idiot">I don't know</option>
-          </select>
-        </label>
+          <Select name="gender" 
+                  value={newContact.gender} 
+                  onChange={handleChange}
+                  autoWidth>
+            <MenuItem value="" disabled>Select an option</MenuItem>      
+            <MenuItem value="male">Male</MenuItem>
+            <MenuItem value="female">Female</MenuItem>
+            <MenuItem value="idiot">I don't know</MenuItem>
+          </Select>
+        </label>                  
+        </FormControl>
+        </CardContent>
+        <CardActions>
           <div>
-            <button type="button" className="submit-button" onClick={handleSubmit}>Add Contact</button>
-            <span> </span>
-            <button type="cancel" value="cancel">Cancel</button>
+            <Button className="submit-button" onClick={handleSubmit}>Add Contact</Button>
+            <Button>Cancel</Button>
           </div>
-        </form>
+       </CardActions>
+    </Card>
   );
 }
 

@@ -30,9 +30,7 @@
     font-weight: 200;
   }
   .text-Input {
-    width: 85%;
-    position: absolute;
-    right: 5%;
+    width: 85% !important;
   }
   footer {
     position: absolute;
@@ -50,11 +48,11 @@
     height: auto;
   }
   .add-button{
-    width:80px;
-    height:40px;
-    background-color: #91c7f3;
-    color: #fff;
-    
+    background-color: #91c7f3 !important;
+    color: #fff !important;
+  }
+  .delete-button{
+    position: absolute;
   }
   .submit-button{
     background-color: #91c7f3;
