@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Header from "./Header.jsx"
 import Footer from './Footer.jsx';
 import Tile from './Tile.jsx';
-// import Contacts from '../Contacts.jsx'
+import AddIcon from '@material-ui/icons/Add';
 
 function assignContact(contact,index){
   
@@ -19,7 +19,9 @@ function assignContact(contact,index){
 }
 function App() {
   const [contacts,setContacts] = useState([])
+  const [emptyArray, setEmptyArray] = useState(true)
   function handleAdditionInApp(contact){
+    setEmptyArray(false)
     setContacts(prevContacts => {
       return [...prevContacts,contact];
     });
@@ -28,6 +30,7 @@ function App() {
     <div >
       <Header onAddInHeader={handleAdditionInApp}/>
       {contacts.map( (eachContact,index ) => (assignContact(eachContact,index)))}
+      {emptyArray && <h5 className="initial-text">Your Contacts looks empty. Press <AddIcon/> button to add.</h5>}
       <Footer/>
     </div>
   );

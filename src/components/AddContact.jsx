@@ -70,7 +70,7 @@ export default function AddContact(props) {
     <div>
      <Fab className = "add-button" onClick={handleClickOpen}><AddIcon/></Fab>
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle id="form-dialog-title">Add Contact</DialogTitle>
+        <DialogTitle className="form-dialog-title">Add Contact</DialogTitle>
         <DialogContent>        
         <FormControl className="add-contact-form">
             <TextField label="Name" 

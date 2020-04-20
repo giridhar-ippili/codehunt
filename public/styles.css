@@ -11,7 +11,6 @@
     background: #dbe9fa;
     padding: 0 16px;
   }
-
   .add-contact-form{
     font-size: small;
     font-family: "McLaren", cursive;
@@ -23,7 +22,7 @@
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
   }
   
-  header h1 {
+  h1,h2{
     color: #fff;
     font-family: "McLaren", cursive;
     font-weight: 200;
@@ -49,6 +48,17 @@
     width: 70%;
     height: auto;
   }
+  .initial-text{
+    position: absolute;
+    top: 50%; 
+    left: 35%;
+    color: #91c7f3;
+    font-family: "McLaren", cursive;
+   }
+   .form-dialog-title h2{
+     font-family: "McLaren", cursive;
+     color: #91c7f3;
+   }
   .add-button{
     background-color: #91c7f3 !important;
     color: #fff !important;
@@ -75,8 +85,8 @@
     float: left;
     text-align: center;
   }
-  .note h1 {
-    font-size: 1.1em;
+  .note h3 {
+    font-size: 1.5em;
     margin-bottom: 6px;
   }
   .note p {
