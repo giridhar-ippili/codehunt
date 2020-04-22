@@ -17,7 +17,7 @@ function assignContact(contact,index){
     />
   )
 }
-function App() {
+export default function App() {
   const [contacts,setContacts] = useState([])
   const [emptyArray, setEmptyArray] = useState(true)
   function handleAdditionInApp(contact){
@@ -35,5 +35,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

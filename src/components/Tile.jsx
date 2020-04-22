@@ -1,7 +1,7 @@
 import React from 'react';
 // import EditIcon from '@material-ui/icons/Edit';
-import Button from '@material-ui/core/Button'
-function Tile(props) {
+import ConfirmDialog from './ConfirmDialog.jsx'
+export default function Tile(props) {
   return (
     <div className='note'>
      {/* <Button><EditIcon/></Button> */}
@@ -9,10 +9,8 @@ function Tile(props) {
       <img src={props.img} alt='contact-img'></img>
       <p>{props.phone}</p>
       <p>{props.email}</p>
-      <Button className = "delete-button">Delete</Button>
+      <ConfirmDialog/>
     </div>  
 
   );
 }
-
-export default Tile;

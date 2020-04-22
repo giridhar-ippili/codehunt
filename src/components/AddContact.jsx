@@ -21,7 +21,7 @@ export default function AddContact(props) {
         email:"",
         gender:""
       })
-      const [open, setOpen] = React.useState(false);
+      const [open, setOpen] = useState(false);
     
       function handleChange(event){
     
@@ -72,7 +72,7 @@ export default function AddContact(props) {
     <div>
      <Fab className = "add-button" onClick={handleClickOpen}><AddIcon/></Fab>
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle className="form-dialog-title">Add Contact</DialogTitle>
+        <DialogTitle className="dialog-title">Add Contact</DialogTitle>
         <DialogContent>        
         <FormControl className="add-contact-form">
         <Grid container >

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import AddContact from './AddContact'
 
-function Header(props) {
+export default function Header(props) {
   setInterval(getTime,1000)
   const now = new Date().toLocaleTimeString()
   const [time, setTime] = useState(now)
@@ -22,5 +22,3 @@ function Header(props) {
     </header>    
   );
 }
-
-export default Header;
