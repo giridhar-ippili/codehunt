@@ -31,7 +31,8 @@
     display: inline;
   }
   .text-Input {
-    width: 100% !important;
+    display: inline-grid;
+    margin-bottom: 10px !important;
   }
   footer {
     position: absolute;
@@ -66,10 +67,11 @@
   .delete-button{
     position: absolute;
   }
-  .submit-button{
-    background-color: #91c7f3;
-    color: #fff;  
-    font-size: small;
+  .dropdown{
+    width: -webkit-fill-available;
+  }
+  .actions{
+    padding-right: 5% !important;
   }
   .header-content{
     display: flex;

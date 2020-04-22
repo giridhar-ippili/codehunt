@@ -6,10 +6,12 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import FormControl from '@material-ui/core/FormControl';
+import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import Fab from '@material-ui/core/Fab'
 import AddIcon from '@material-ui/icons/Add';
+import Grid from '@material-ui/core/Grid';
 
 export default function AddContact(props) {
     const [newContact, setContact] = useState({
@@ -37,7 +39,7 @@ export default function AddContact(props) {
           }else if(value === "female"){
             newContact.img = "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnAqtN-Cpec8532qhhqbQLjwiwErMptZRBrbz2nuPRl9UzQe4F&usqp=CAU"
           }else{
-            newContact.img = ""
+            newContact.img = "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQwq-YkrroxFxbfXGVLvC9Utd4KABksVEQO2mm4DSFTTK40cgqc&usqp=CAU"
           }
         }
         setContact({
@@ -73,48 +75,63 @@ export default function AddContact(props) {
         <DialogTitle className="form-dialog-title">Add Contact</DialogTitle>
         <DialogContent>        
         <FormControl className="add-contact-form">
-            <TextField label="Name" 
+        <Grid container >
+          <Grid item xs={12}>
+                 <TextField label="Name" 
                             variant="outlined" 
                             className="text-Input" 
                             name="name"                              
                             type="text"
                             fullWidth
+                            required
                             value={newContact.name} 
                             onChange={handleChange}/>
-            <TextField label="Email" 
+          </Grid>
+          <Grid item xs={12}>
+                 <TextField label="Email" 
                             variant="outlined" 
                             className="text-Input" 
                             name="email" 
                             type="email"
                             fullWidth
+                            required
                             value={newContact.email} 
-                            onChange={handleChange}/>
-            <TextField label="Mobile number" 
+                            onChange={handleChange}/> 
+          </Grid>
+          <Grid item xs={12}>
+                 <TextField label="Mobile number" 
                             variant="outlined" 
                             className="text-Input" 
                             type="number"
-                            fullWidth 
+                            fullWidth
+                            required 
                             name="phone" 
                             value={newContact.phone} 
                             onChange={handleChange}/>
-            <Select name="gender" 
-                  variant="outlined"
-                  value={newContact.gender} 
-                  onChange={handleChange}
-                  label="Gender"
-                  displayEmpty
-                  autoWidth>
-            <MenuItem value="" selected disabled>Pick your gender</MenuItem>      
-            <MenuItem value="male">Male</MenuItem>
-            <MenuItem value="female">Female</MenuItem>
-            <MenuItem value="idiot">I don't know</MenuItem>
-          </Select>              
+          </Grid>
+          <Grid item xs={12}>
+              <FormControl className="dropdown">
+                <InputLabel>Gender</InputLabel>
+                <Select label="Gender"
+                        name="gender" 
+                        variant="outlined"
+                        value={newContact.gender} 
+                        onChange={handleChange}
+                        >
+                  <MenuItem value="">clear selection</MenuItem>
+                  <MenuItem value="male">Male</MenuItem>
+                  <MenuItem value="female">Female</MenuItem>
+                  <MenuItem value="idiot">I don't know</MenuItem>
+                </Select> 
+              </FormControl>
+          </Grid>
+        </Grid>   
         </FormControl>
         </DialogContent>
-        <DialogActions>
+        <DialogActions className="actions">
             <div>
-            <Button className="submit-button" onClick={handleSubmit}>Add Contact</Button>
-            <Button onClick={handleClose}>Cancel</Button>
+            <Button  onClick={handleClose}>Cancel</Button>
+            <Button  variant="outlined" color="primary"onClick={handleSubmit}>Add Contact</Button>            
           </div>
         </DialogActions>
       </Dialog>

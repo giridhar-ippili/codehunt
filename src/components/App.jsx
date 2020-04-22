@@ -30,7 +30,7 @@ function App() {
     <div >
       <Header onAddInHeader={handleAdditionInApp}/>
       {contacts.map( (eachContact,index ) => (assignContact(eachContact,index)))}
-      {emptyArray && <h5 className="initial-text">Your Contacts looks empty. Press <AddIcon/> button to add.</h5>}
+      {emptyArray && <h5 className="initial-text">Your contacts looks empty. Click on <AddIcon/> button to add.</h5>}
       <Footer/>
     </div>
   );
