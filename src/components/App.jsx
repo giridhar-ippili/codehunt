@@ -3,6 +3,7 @@ import Header from "./Header.jsx"
 import Footer from './Footer.jsx';
 import Tile from './Tile.jsx';
 import AddIcon from '@material-ui/icons/Add';
+import Login from './Login.jsx'
 
 function assignContact(contact,index){
   
@@ -28,10 +29,11 @@ export default function App() {
   }
   return (
     <div >
-      <Header onAddInHeader={handleAdditionInApp}/>
+    <Login/>
+      {/* <Header onAddInHeader={handleAdditionInApp}/>
       {contacts.map( (eachContact,index ) => (assignContact(eachContact,index)))}
       {emptyArray && <h5 className="initial-text">Your contacts looks empty. Click on <AddIcon/> button to add.</h5>}
-      <Footer/>
+      <Footer/> */}
     </div>
   );
 }

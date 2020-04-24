@@ -56,6 +56,21 @@
     color: #91c7f3;
     font-family: "McLaren", cursive;
    }
+  .login-text{
+    position: absolute;
+    top: 20%; 
+    left: 30%;
+    color: #91c7f3;
+    font-family: "McLaren", cursive;
+   }
+
+   .login{
+    position: absolute;
+    top: 30%; 
+    left: 40%;
+    color: #91c7f3;
+    font-family: "McLaren", cursive;
+   }
    .dialog-title h2{
      font-family: "McLaren", cursive;
      color: #91c7f3;
