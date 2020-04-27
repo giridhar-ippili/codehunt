@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
+import { Link } from "react-router-dom";
+
 
 export default function Login() {
     const [login, setLogin] = useState({
@@ -44,7 +46,7 @@ export default function Login() {
                             onChange={handleChange}/> 
           </Grid>
           <Grid>
-          <Button  variant="outlined" color="primary">Login</Button> 
+          <Button  variant="outlined" color="primary"><Link to="/home">Login</Link></Button> 
           </Grid>
        </Grid>   
     </form>
