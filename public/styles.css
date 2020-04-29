@@ -48,6 +48,7 @@
   img {
     width: 70%;
     height: auto;
+    border-radius: 50%;
   }
   .initial-text{
     position: absolute;
@@ -78,6 +79,12 @@
   .add-button{
     background-color: #91c7f3 !important;
     color: #fff !important;
+  }
+  .login-button{
+    background-color: #91c7f3 !important;
+    color: #fff !important;
+    width: 14rem;
+    font-family: "McLaren", cursive !important;
   }
   .delete-button{
     position: absolute;

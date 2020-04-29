@@ -8,7 +8,6 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem';
 import Fab from '@material-ui/core/Fab'
 import AddIcon from '@material-ui/icons/Add';
 import Grid from '@material-ui/core/Grid';
@@ -39,7 +38,8 @@ export default function AddContact(props) {
           }else if(value === "female"){
             newContact.img = "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnAqtN-Cpec8532qhhqbQLjwiwErMptZRBrbz2nuPRl9UzQe4F&usqp=CAU"
           }else{
-            newContact.img = "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQwq-YkrroxFxbfXGVLvC9Utd4KABksVEQO2mm4DSFTTK40cgqc&usqp=CAU"
+            newContact.img = "https://t4.ftcdn.net/jpg/01/54/74/65/240_F_154746562_6uuVYcha7w6NnkkSpWg8w9lRPVxCyO8v.jpg"
+            // newContact.img = "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRSGLGD1URArHo4ECwPD4YMvbknNmTHH2zNsKu0dJmArpAosciU&usqp=CAU"
           }
         }
         setContact({
@@ -47,7 +47,7 @@ export default function AddContact(props) {
         });
     
       }
-      function handleSubmit() {
+      function handleSubmit(event) {
         props.onAddInHeader(newContact)
         setContact({
           name:"",
@@ -57,6 +57,7 @@ export default function AddContact(props) {
           gender:""
         })
         setOpen(false);
+        event.preventDefault()
       }
 
 
@@ -72,9 +73,9 @@ export default function AddContact(props) {
     <div>
      <Fab className = "add-button" onClick={handleClickOpen}><AddIcon/></Fab>
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle className="dialog-title">Add Contact</DialogTitle>
-        <DialogContent>        
-        <FormControl className="add-contact-form">
+      <form className="add-contact-form" onSubmit={handleSubmit}>
+      <DialogTitle className="dialog-title">Add Contact</DialogTitle>
+      <DialogContent>        
         <Grid container >
           <Grid item xs={12}>
                  <TextField label="Name" 
@@ -110,30 +111,32 @@ export default function AddContact(props) {
                             onChange={handleChange}/>
           </Grid>
           <Grid item xs={12}>
-              <FormControl className="dropdown">
-                <InputLabel>Gender</InputLabel>
-                <Select label="Gender"
-                        name="gender" 
-                        variant="outlined"
-                        value={newContact.gender} 
-                        onChange={handleChange}
-                        >
-                  <MenuItem value="">clear selection</MenuItem>
-                  <MenuItem value="male">Male</MenuItem>
-                  <MenuItem value="female">Female</MenuItem>
-                  <MenuItem value="idiot">I don't know</MenuItem>
-                </Select> 
-              </FormControl>
+          <FormControl className="dropdown" required>
+            <InputLabel>Gender</InputLabel>
+            <Select label="Gender"
+                    name="gender" 
+                    variant="outlined"
+                    native
+                    required 
+                    value={newContact.gender} 
+                    onChange={handleChange}
+            >
+              <option value=""/>
+              <option value={"male"}>Male</option>
+              <option value={"female"}>Female</option>
+              <option value={"idiot"}>I don't know</option>
+            </Select>
+          </FormControl>
           </Grid>
         </Grid>   
-        </FormControl>
         </DialogContent>
         <DialogActions className="actions">
             <div>
             <Button  onClick={handleClose}>Cancel</Button>
-            <Button  variant="outlined" color="primary"onClick={handleSubmit}>Add Contact</Button>            
+            <Button  type="submit" variant="outlined" color="primary" >Add Contact</Button>            
           </div>
-        </DialogActions>
+        </DialogActions>        
+        </form>
       </Dialog>
     </div>
   );
