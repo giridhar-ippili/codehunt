@@ -14,6 +14,8 @@
   .add-contact-form{
     font-size: small;
     font-family: "McLaren", cursive;
+    border: #91c7f3;
+    margin: 1rem;
   }
   header {
     background-color: #91c7f3;
@@ -29,6 +31,8 @@
   }
   label{
     display: inline;
+    position: relative;
+    right:21%;
   }
   .text-Input {
     display: inline-grid;
@@ -57,20 +61,34 @@
     color: #91c7f3;
     font-family: "McLaren", cursive;
    }
+   .login{
+     background-color: lightblue !important;
+   }
   .login-text{
+    color: #91c7f3;
+    font-family: "McLaren", cursive;
+    margin-bottom: 2rem;
+   }
+  .login-input{
+    display: inline-grid;
+    margin-bottom: 10px !important;
+    width:50%;
+  }
+   .login-form{
     position: absolute;
     top: 20%; 
-    left: 30%;
+    left: 23%;
     color: #91c7f3;
     font-family: "McLaren", cursive;
-   }
-
-   .login{
-    position: absolute;
-    top: 30%; 
-    left: 40%;
-    color: #91c7f3;
-    font-family: "McLaren", cursive;
+    background: #fff;
+    border-radius: 7px;
+    box-shadow: 0 2px 5px #91c7f3;
+    padding: 10px;
+    width: 50%;
+    height: 60%;
+    margin: 16px;
+    float: left;
+    text-align: center;
    }
    .dialog-title h2{
      font-family: "McLaren", cursive;
@@ -83,8 +101,10 @@
   .login-button{
     background-color: #91c7f3 !important;
     color: #fff !important;
-    width: 14rem;
+    width: 21rem;
     font-family: "McLaren", cursive !important;
+    border-radius: 7px !important;
+    border-color: #91c7f3 !important;
   }
   .delete-button{
     position: absolute;

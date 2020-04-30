@@ -3,7 +3,7 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 
-export default function Login() {
+export default function Login(props) {
     const [login, setLogin] = useState({
         name:"",
         email:"",
@@ -18,37 +18,37 @@ export default function Login() {
         setLogin({...login});
       }
       function handleSubmit(event){
+        props.onLoginSubmit(login)
         event.preventDefault()
-        console.log("Hello"); 
-        console.log(this.props)
-        this.props.history.push("/home");
       }
   return (
-    <div>    
+    <div className="login">    
+    <form className="login-form" onSubmit={handleSubmit}>
     <h1 className="login-text">Welcome to Buddy Keeper</h1>
-    <form className="login" onSubmit={handleSubmit}>
-      <Grid container   >
+      <Grid container>
+          <Grid item xs={12}><label>Name *</label></Grid>      
           <Grid  item xs={12}>
                  <TextField id="name"
-                            label="Name" 
                             required
                             variant="outlined" 
-                            className="text-Input" 
+                            className="login-input" 
                             name="name"                            
                             value={login.name} 
                             onChange={handleChange}/>
           </Grid>
+          <Grid item xs={12}><label>Email *</label></Grid>
           <Grid item xs={12}>
-                 <TextField label="Email" 
+                 <TextField 
                             variant="outlined" 
-                            className="text-Input" 
+                            className="login-input" 
                             name="email" 
                             type="email"
                             required
                             value={login.email} 
                             onChange={handleChange}/> 
           </Grid>
-          <Grid>
+          <Grid item xs={12}><br/></Grid>
+          <Grid item xs={12}>
           <Button type="submit" variant="outlined" color="primary" className="login-button">Take me in!</Button> 
           </Grid>
       </Grid>   

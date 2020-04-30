@@ -48,6 +48,7 @@ export default function AddContact(props) {
     
       }
       function handleSubmit(event) {
+        console.log(props)
         props.onAddInHeader(newContact)
         setContact({
           name:"",
