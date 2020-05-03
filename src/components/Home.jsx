@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from "./Header.jsx"
 import Footer from './Footer.jsx';
 import Tile from './Tile.jsx';
@@ -17,7 +17,10 @@ function assignContact(contact,index){
       />
     )
   }
-  export default function App() {
+  export default function Home(props) {
+    useEffect(() => {
+      console.log("Hi there",props);
+    });
     const [contacts,setContacts] = useState([])
     const [emptyArray, setEmptyArray] = useState(true)
     function handleAdditionInApp(contact){

@@ -4,15 +4,22 @@ import App from './components/App.jsx';
 import Home from './components/Home.jsx';
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
-function homeRoute() {
-  return (
-    <Home/>
-  );
+const login = {
+  name:"",
+  email:"",
 }
-
+function handleLogin(loginDetails){
+  login.name = loginDetails.name
+  login.email = loginDetails.email
+};
 function appRoute() {
   return (
-    <App/>
+    <App onLoginSubmitInApp = {handleLogin}/>
+  );
+}
+function homeRoute() {
+  return (
+    <Home LoginValues={login}/>
   );
 }
 

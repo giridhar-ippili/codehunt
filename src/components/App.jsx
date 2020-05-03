@@ -4,7 +4,7 @@ import Login from './Login.jsx'
 
 export default function App(props) {
   function handleLogin(login){
-    console.log(login);
+    props.onLoginSubmitInApp(login);
   }
   return (
     <div >

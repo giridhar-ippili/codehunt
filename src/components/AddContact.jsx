@@ -22,8 +22,7 @@ export default function AddContact(props) {
       })
       const [open, setOpen] = useState(false);
     
-      function handleChange(event){
-    
+      function handleChange(event){    
         const {name, value} = event.target
         if(name === "name"){
           newContact.name = value
@@ -48,7 +47,6 @@ export default function AddContact(props) {
     
       }
       function handleSubmit(event) {
-        console.log(props)
         props.onAddInHeader(newContact)
         setContact({
           name:"",
@@ -79,15 +77,16 @@ export default function AddContact(props) {
       <DialogContent>        
         <Grid container >
           <Grid item xs={12}>
-                 <TextField label="Name" 
-                            variant="outlined" 
-                            className="text-Input" 
-                            name="name"                              
-                            type="text"
-                            fullWidth
-                            required
-                            value={newContact.name} 
-                            onChange={handleChange}/>
+            <TextField label = "Name"
+                       variant = "outlined"
+                       className = "text-Input"
+                       name = "name"
+                       type = "text"
+                       fullWidth
+                       required
+                       value = {newContact.name}
+                       onChange = {handleChange}
+                 />
           </Grid>
           <Grid item xs={12}>
                  <TextField label="Email" 
