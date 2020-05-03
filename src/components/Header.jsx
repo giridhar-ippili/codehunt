@@ -16,8 +16,11 @@ export default function Header(props) {
     <header>
     <div className="header-content">
       <h1>Buddies</h1> 
-      <h2>{time}</h2>   
+      <h2>{time}</h2> 
+      <div className="header-greeting">
+      <h5>Hi {props.loggedUser}</h5>  
       <AddContact onAddInHeader={handleAdditionInHeader}/>
+      </div>
     </div>    
     </header>    
   );

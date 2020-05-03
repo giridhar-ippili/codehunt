@@ -119,6 +119,17 @@
     display: flex;
     justify-content: space-between ;
   }
+  .header-greeting{
+    display: flex;
+    justify-content: space-between ;
+    color: #fff;
+    font-family: "McLaren", cursive;
+    font-weight: 200;
+    
+  }
+  .header-greeting h5{
+    padding: 15px 10px 0 0;
+  }
   .note {
     background: #fff;
     border-radius: 7px;

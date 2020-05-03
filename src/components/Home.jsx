@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Header from "./Header.jsx"
 import Footer from './Footer.jsx';
 import Tile from './Tile.jsx';
@@ -18,9 +18,11 @@ function assignContact(contact,index){
     )
   }
   export default function Home(props) {
-    useEffect(() => {
-      console.log("Hi there",props);
-    });
+    let name = props.LoginValues.name;
+    // useEffect(() => {
+    //   console.log("Hi there",props.LoginValues.name);
+    //   name = 
+    // });
     const [contacts,setContacts] = useState([])
     const [emptyArray, setEmptyArray] = useState(true)
     function handleAdditionInApp(contact){
@@ -31,7 +33,9 @@ function assignContact(contact,index){
     }
     return (
       <div >
-        <Header onAddInHeader={handleAdditionInApp}/>
+        <Header onAddInHeader={handleAdditionInApp}
+                loggedUser={name}
+        />
         {contacts.map( (eachContact,index ) => (assignContact(eachContact,index)))}
         {emptyArray && <h5 className="initial-text">Your contacts looks empty. Click on <AddIcon/> button to add.</h5>}
         <Footer/>

@@ -5,7 +5,7 @@ import Home from './components/Home.jsx';
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 const login = {
-  name:"",
+  name:"Giridhar",
   email:"",
 }
 function handleLogin(loginDetails){
