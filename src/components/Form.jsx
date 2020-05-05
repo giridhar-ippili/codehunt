@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
-import TextField from '@material-ui/core/TextField'
-import Button from '@material-ui/core/Button'
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardHeader from '@material-ui/core/CardContent';
+import React, {useState} from 'react';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogTitle from '@material-ui/core/DialogTitle';
 import FormControl from '@material-ui/core/FormControl';
+import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem';
+import Grid from '@material-ui/core/Grid';
 
-function Form() {
+export default function Form() {
   const [newContact, setContact] = useState({
     key:0,
     name:"",
@@ -18,7 +19,7 @@ function Form() {
     email:"",
     gender:""
   })
-
+  const [open, setOpen] = useState(false);
   function handleChange(event){
 
     const {name, value} = event.target
@@ -39,58 +40,76 @@ function Form() {
   function handleSubmit() {
     console.log(newContact)
   }
+  const handleClose = () => {
+    setOpen(false);
+  };
   return (
-    <Card>
-      <CardContent>
-      <CardHeader><h4>Add Contact</h4></CardHeader>
-        <FormControl>         
-            <label>
-            Name:<TextField label="Name" 
-                            variant="outlined" 
-                            className="text-Input" 
-                            name="name" 
-                            value={newContact.name} 
-                            onChange={handleChange}/>
-          </label>
-          <label>
-            Email:<TextField label="Email" 
+    <Dialog open={open} onClose={handleClose}>
+      <form className="add-contact-form" onSubmit={handleSubmit}>
+      <DialogTitle className="dialog-title">Add Contact</DialogTitle>
+      <DialogContent>        
+        <Grid container >
+          <Grid item xs={12}>
+            <TextField label = "Name"
+                       variant = "outlined"
+                       className = "text-Input"
+                       name = "name"
+                       type = "text"
+                       fullWidth
+                       required
+                       value = {newContact.name}
+                       onChange = {handleChange}
+                 />
+          </Grid>
+          <Grid item xs={12}>
+                 <TextField label="Email" 
                             variant="outlined" 
                             className="text-Input" 
                             name="email" 
+                            type="email"
+                            fullWidth
+                            required
                             value={newContact.email} 
-                            onChange={handleChange}/>
-          </label>
-          <label>
-            Phone: <TextField label="Mobile number" 
+                            onChange={handleChange}/> 
+          </Grid>
+          <Grid item xs={12}>
+                 <TextField label="Mobile number" 
                             variant="outlined" 
                             className="text-Input" 
+                            type="number"
+                            fullWidth
+                            required 
                             name="phone" 
                             value={newContact.phone} 
                             onChange={handleChange}/>
-          </label>
-          <label>
-          Gender:
-          <Select name="gender" 
-                  value={newContact.gender} 
-                  onChange={handleChange}
-                  displayEmpty
-                  autoWidth>
-            <MenuItem value="" selected disabled>Select an option</MenuItem>      
-            <MenuItem value="male">Male</MenuItem>
-            <MenuItem value="female">Female</MenuItem>
-            <MenuItem value="idiot">I don't know</MenuItem>
-          </Select>
-        </label>                  
-        </FormControl>
-        </CardContent>
-        <CardActions>
-          <div>
-            <Button className="submit-button" onClick={handleSubmit}>Add Contact</Button>
-            <Button>Cancel</Button>
+          </Grid>
+          <Grid item xs={12}>
+          <FormControl className="dropdown" required>
+            <InputLabel>Gender</InputLabel>
+            <Select label="Gender"
+                    name="gender" 
+                    variant="outlined"
+                    native
+                    required 
+                    value={newContact.gender} 
+                    onChange={handleChange}
+            >
+              <option value=""/>
+              <option value={"male"}>Male</option>
+              <option value={"female"}>Female</option>
+              <option value={"idiot"}>I don't know</option>
+            </Select>
+          </FormControl>
+          </Grid>
+        </Grid>   
+        </DialogContent>
+        <DialogActions className="actions">
+            <div>
+            <Button  onClick={handleClose}>Cancel</Button>
+            <Button  type="submit" variant="outlined" color="primary" >Add Contact</Button>            
           </div>
-       </CardActions>
-    </Card>
+        </DialogActions>        
+        </form>
+      </Dialog>
   );
 }
-
-export default Form;
