@@ -34,6 +34,9 @@
     position: relative;
     right:21%;
   }
+  .link{
+    color: white !important;
+  }
   .text-Input {
     display: inline-grid;
     margin-bottom: 10px !important;

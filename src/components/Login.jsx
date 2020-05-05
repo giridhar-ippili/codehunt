@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
+import {useHistory } from "react-router-dom";
 
 export default function Login(props) {
     const [login, setLogin] = useState({
@@ -17,8 +18,11 @@ export default function Login(props) {
         }
         setLogin({...login});
       }
+      let history = useHistory();
+
       function handleSubmit(event){
         props.onLoginSubmit(login)
+        history.push("/home");
         event.preventDefault()
       }
   return (
@@ -49,7 +53,12 @@ export default function Login(props) {
           </Grid>
           <Grid item xs={12}><br/></Grid>
           <Grid item xs={12}>
-          <Button type="submit" variant="outlined" color="primary" className="login-button">Take me in!</Button> 
+          <Button type="submit" 
+                  variant="outlined" 
+                  color="primary" 
+                  className="login-button">
+                  Take me in!
+          </Button> 
           </Grid>
       </Grid>   
     </form>
