@@ -8,6 +8,10 @@ import Button from '@material-ui/core/Button';
 export default function ConfirmDialog(props) {
   const [open, setOpen] = useState(false);
   
+  function handleSubmit() {
+    props.handleDelete();
+    setOpen(false);
+  }
   const  handleClickOpen = () => {
     setOpen(true);
   }; 
@@ -23,7 +27,7 @@ export default function ConfirmDialog(props) {
           <DialogActions>            
             <div>
               <Button  onClick={handleClose}>Cancel</Button>
-              <Button  variant="outlined" color="primary"onClick={handleClose}>Delete</Button>            
+              <Button  variant="outlined" color="primary"onClick={handleSubmit}>Delete</Button>            
             </div>
           </DialogActions>
         </Dialog>

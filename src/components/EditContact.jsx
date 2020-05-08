@@ -47,6 +47,7 @@ export default function EditContact(props) {
     
       }
       function handleSubmit(event) {
+        props.handleEdit()
         setContact({
           name:"",
           img:"",
@@ -60,6 +61,10 @@ export default function EditContact(props) {
 
 
   const handleClickOpen = () => {
+    // console.log(props.contactAttached)
+    newContact.name = props.contactAttached.name
+    newContact.email = props.contactAttached.email
+    newContact.phone = props.contactAttached.phone
     setOpen(true);
   };
 
